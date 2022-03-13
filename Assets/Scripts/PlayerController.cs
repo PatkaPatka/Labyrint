@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 12f;
+    [SerializeField] LayerMask groundMask;
+
     Vector3 velocity;
     CharacterController controller;
 
@@ -16,6 +18,31 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMove();
+        GroundCheck();
+    }
+
+    void GroundCheck()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, Vector3.down, out hit))
+        {
+            string groundType = hit.collider.tag;
+
+            switch(groundType)
+            {
+                case "GroundSlow":
+                    speed = 7;
+                    break;
+
+                case "GroundFast":
+                    speed = 20;
+                    break;
+
+                default:
+                    speed = 12;
+                    break;
+            }
+        }
     }
 
     void PlayerMove()
@@ -23,7 +50,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(x, 0, z);
+        Vector3 move = (z * transform.forward) + (x * transform.right);
         controller.Move(move * speed * Time.deltaTime);
     }
 }

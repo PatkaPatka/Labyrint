@@ -15,6 +15,10 @@ MonoBehaviour:
   SimpleSelectedItems:
     m_Keys:
     - Assets/Materials.meta
+    - Assets/Materials/GroundFast.mat
+    - Assets/Materials/GroundFast.mat.meta
+    - Assets/Materials/GroundSlow.mat
+    - Assets/Materials/GroundSlow.mat.meta
     - Assets/Materials/Ground_01.mat
     - Assets/Materials/Ground_01.mat.meta
     - Assets/Materials/Obstacle_01.mat
@@ -28,8 +32,10 @@ MonoBehaviour:
     - Assets/Scripts.meta
     - Assets/Scripts/CameraController.cs
     - Assets/Scripts/CameraController.cs.meta
+    - Assets/Scripts/PlayerController.cs
+    - Assets/Scripts/PlayerController.cs.meta
     - 
-    m_Values: 010101010101010101010101010101
+    m_Values: 000000000000000000000000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
